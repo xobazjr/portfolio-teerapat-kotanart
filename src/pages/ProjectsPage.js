@@ -65,7 +65,7 @@ const ProjectPage = () => {
               {project.link_to.type}
             </a>
           ) : (
-            <p className="text-body-lg">{project.type}</p>
+            <p className="text-body-lg">{project.with}</p>
           )}
         </div>
       </section>
