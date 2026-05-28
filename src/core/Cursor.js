@@ -34,19 +34,7 @@ export default function Cursor() {
   return (
     <div
       ref={cursorRef}
-      style={{
-        position: 'fixed',
-        top: 0,
-        left: 0,
-        width: '16px',
-        height: '16px',
-        borderRadius: '50%',
-        backgroundColor: '#ffffff',
-        pointerEvents: 'none',
-        zIndex: 9999,
-        translate: '-50% -50%',
-        mixBlendMode: 'difference',
-      }}
+      className="custom-cursor"
     />
   )
 }
