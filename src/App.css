@@ -379,10 +379,9 @@ footer {
 
 footer h1 {
   text-align: center;
-  font-size: clamp(3rem, 11vw, 12rem);
+  font-size: clamp(1rem, 11vw, 12rem);
   font-weight: 800;
   line-height: 1;
-  letter-spacing: -2px;
   text-transform: uppercase;
   margin-bottom: 40px;
   white-space: nowrap;
@@ -596,6 +595,8 @@ footer > div p {
     --text-h3: clamp(1.25rem, 2.5vw, 1.75rem);
   }
 
+  /* MARK: Home */
+
   .home_top h1:last-of-type {
     margin-right: 20vw;
   }
@@ -612,6 +613,8 @@ footer > div p {
     padding: 8px 18px;
   }
 
+  /* MARK: Project */
+
   .projects {
     padding: 48px 28px;
   }
@@ -624,6 +627,8 @@ footer > div p {
   .projects__header {
     margin-bottom: 40px;
   }
+
+  /* MARK: Project Page */
 
   .Project_Page {
     gap: 40px;
@@ -642,12 +647,30 @@ footer > div p {
     gap: 24px;
   }
 
+  /* MARK: Container */
+
   .container_main > div {
     width: 38vw;
   }
 
+  /* MARK: Navigation */
+
   .nav-right a {
     padding: 8px 14px;
+  }
+
+  /* MARK: Footer */
+
+  footer h1 {
+    margin-bottom: 28px;
+  }
+
+  .footer_box h3 {
+    margin-bottom: 20px;
+  }
+
+  .footer_bottom {
+    gap: 16px;
   }
 }
 
@@ -660,6 +683,12 @@ footer > div p {
     --text-h3: clamp(1.125rem, 4vw, 1.5rem);
     --text-body-lg: 1rem;
     --text-small: 0.8125rem;
+  }
+
+  /* MARK: Home */
+
+  .home {
+    min-height: 50vh;
   }
 
   .home_top h1:last-of-type {
@@ -684,9 +713,15 @@ footer > div p {
     padding: 6px 12px;
   }
 
-  .home_bottom h1 {
-    margin-bottom: 12px;
+  .home_top h1 {
+    display: none;
   }
+
+  .home_bottom h1 {
+    display: none;
+  }
+
+  /* MARK: Projects */
 
   .projects {
     padding: 36px 16px;
@@ -708,6 +743,8 @@ footer > div p {
   .projects__header {
     margin-bottom: 28px;
   }
+
+  /* MARK: Project Page */
 
   .Project_Page {
     padding-top: 40px;
@@ -745,9 +782,13 @@ footer > div p {
     gap: 16px;
   }
 
+  /* MARK: Container */
+
   .container_main > div {
     width: 70vw;
   }
+
+  /* MARK: Navigation: */
 
   nav {
     padding: 12px 16px;
@@ -755,5 +796,34 @@ footer > div p {
 
   .nav-right a {
     padding: 6px 12px;
+  }
+
+  /* MARK: Footer */
+
+  footer h1 {
+    margin-bottom: 20px;
+    letter-spacing: -1px;
+  }
+
+  .footer_box h3 {
+    margin-bottom: 16px;
+    padding: 6px 14px;
+  }
+
+  .footer_center {
+    width: 100%;
+  }
+
+  .footer_bottom {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+
+  .copyright {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+    padding: 12px 16px;
   }
 }
