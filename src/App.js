@@ -3,6 +3,8 @@ import "./App.css";
 import { useEffect, useRef } from "react";
 import Lenis from "lenis";
 import Cursor from "./core/Cursor";
+import Analytics from "./core/Analytics";
+
 
 import {
     BrowserRouter,
@@ -53,6 +55,7 @@ function App() {
 
     return (
         <>
+            <Analytics />
             <Cursor />
             <Routes>
                 <Route path="/" element={<HomePage />} />
