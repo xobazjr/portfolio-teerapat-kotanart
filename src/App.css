@@ -596,6 +596,22 @@ footer > div p {
     --text-h3: clamp(1.25rem, 2.5vw, 1.75rem);
   }
 
+  .home_top h1:last-of-type {
+    margin-right: 20vw;
+  }
+
+  .home_bottom h1:last-of-type {
+    margin-left: 20vw;
+  }
+
+  .home_bottom h1:first-of-type {
+    margin-left: 12vw;
+  }
+
+  .home_top a {
+    padding: 8px 18px;
+  }
+
   .projects {
     padding: 48px 28px;
   }
@@ -608,6 +624,31 @@ footer > div p {
   .projects__header {
     margin-bottom: 40px;
   }
+
+  .Project_Page {
+    gap: 40px;
+  }
+
+  .Project_Page_Top {
+    grid-template-columns: clamp(140px, 18vw, 220px) 1fr;
+    gap: 12px 28px;
+  }
+
+  .Project_Page_Top img {
+    width: 85%;
+  }
+
+  .Project_Page_Bottom {
+    gap: 24px;
+  }
+
+  .container_main > div {
+    width: 38vw;
+  }
+
+  .nav-right a {
+    padding: 8px 14px;
+  }
 }
 
 /* MARK: 600px */
@@ -619,6 +660,32 @@ footer > div p {
     --text-h3: clamp(1.125rem, 4vw, 1.5rem);
     --text-body-lg: 1rem;
     --text-small: 0.8125rem;
+  }
+
+  .home_top h1:last-of-type {
+    margin-right: 0;
+  }
+
+  .home_bottom h1:last-of-type {
+    margin-left: 0;
+  }
+
+  .home_bottom h1:first-of-type {
+    margin-left: 0;
+  }
+
+  .home_top div {
+    top: 12px;
+    right: 12px;
+    gap: 6px;
+  }
+
+  .home_top a {
+    padding: 6px 12px;
+  }
+
+  .home_bottom h1 {
+    margin-bottom: 12px;
   }
 
   .projects {
@@ -642,7 +709,51 @@ footer > div p {
     margin-bottom: 28px;
   }
 
-  .home_top a {
-    padding: 8px 16px;
+  .Project_Page {
+    padding-top: 40px;
+  }
+
+  .Project_Page_Top {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto auto;
+    gap: 15px;
+  }
+
+  .Project_Page_Top h3 {
+    grid-column: 1;
+    grid-row: 1;
+  }
+
+  .Project_Page_Top p {
+    grid-column: 1;
+    grid-row: 2;
+  }
+
+  .Project_Page_Image {
+    grid-column: 1;
+    grid-row: 3;
+  }
+
+  .Project_Page_Top img {
+    width: 100%;
+    margin-top: 30px;
+  }
+
+  .Project_Page_Bottom {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+  }
+
+  .container_main > div {
+    width: 70vw;
+  }
+
+  nav {
+    padding: 12px 16px;
+  }
+
+  .nav-right a {
+    padding: 6px 12px;
   }
 }
