@@ -81,7 +81,7 @@ const Projects = ({ items }) => {
             <div className="projects__grid">
                 {items.map((element, index) => (
                     <ProjectCard
-                        key={index}
+                        key={element.id}
                         element={element}
                     />
                 ))}

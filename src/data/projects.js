@@ -1,6 +1,9 @@
+import { v4 as uuidv4 } from "uuid";
+
 const projects = [
     // MARK: goIT
     {
+        id: uuidv4(),
         slug: "goIT",
         image:"/assets/img/projects/goIT.webp",
         title:"goIT",
@@ -23,6 +26,7 @@ const projects = [
     },
     // MARK: Generative AI Prompt
     {
+        id: uuidv4(),
         slug: "AI Prompt",
         image:"/assets/img/projects/Generative_AI.webp",
         title:"AI Prompt",
@@ -43,6 +47,7 @@ const projects = [
     },
     // MARK: Smart Medicine Box
     {
+        id: uuidv4(),
         slug: "Smart Medicine",
         image:"/assets/img/projects/Smart_Medicine.webp",
         title:"SMB",
@@ -64,6 +69,7 @@ const projects = [
     },
     // MARK: Snowbeef
     {
+        id: uuidv4(),
         slug: "Snowbeef",
         image:"/assets/img/projects/Snowbeef.webp",
         title:"Snowbeef",

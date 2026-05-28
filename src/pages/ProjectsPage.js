@@ -7,13 +7,11 @@ import useTooltip from "../hooks/useTooltip";
 
 import Navbar from "../components/navigation/Navbar";
 import Footer from "../components/footer/Footer";
-
-import { Link } from "react-router-dom";
+import Containers from "../components/projects/Containers"
 
 const ProjectPage = () => {
   const { slug } = useParams();
   const project = projects.find((item) => item.slug === slug);
-  const project_container = projects.filter((item) => item.slug !== slug);
   const imgRef = useRef(null);
   const { tooltip, pos, showTooltip, moveTooltip, hideTooltip } = useTooltip();
   if (!project) {
@@ -71,7 +69,9 @@ const ProjectPage = () => {
           )}
         </div>
       </section>
-      <section className="container_main">
+      <Containers projects={projects} slug={project.slug}/>
+          
+      {/* <section className="container_main">
         {project_container.map((element, index) => (
           <div key={index}>
             <img src={element.image} alt={element.title} />
@@ -91,7 +91,7 @@ const ProjectPage = () => {
             </div>
           </div>
         ))}
-      </section>
+      </section> */}
       <Footer/>
     </>
   );
