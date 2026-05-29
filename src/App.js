@@ -5,7 +5,6 @@ import Lenis from "lenis";
 import Cursor from "./core/Cursor";
 import Analytics from "./core/Analytics";
 
-
 import {
     BrowserRouter,
     Routes,
