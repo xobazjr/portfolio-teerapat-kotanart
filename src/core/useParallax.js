@@ -1,14 +1,6 @@
 import { useEffect, useRef } from 'react'
 
-/**
- * useParallax
- * อัปเดต background-position ของ element ตาม scroll
- * เหมือน style="background-position: center calc(50% + Xpx)"
- *
- * @param {number} speed - ความเร็ว parallax (แนะนำ 0.15 - 0.3)
- * @returns {React.RefObject} - ใส่ ref นี้ใน element ที่ต้องการ
- */
-export function useParallax(speed = 0.2) {
+export function useParallax(speed = 0.3) {
     const ref = useRef(null)
 
     useEffect(() => {
@@ -20,14 +12,8 @@ export function useParallax(speed = 0.2) {
         const update = () => {
             const rect = el.getBoundingClientRect()
             const viewH = window.innerHeight
-
-            // เปอร์เซ็นต์ที่ section เลื่อนผ่าน viewport (0 = เริ่มเข้า, 1 = ออกไปแล้ว)
-            const progress = 1 - (rect.bottom / (viewH + rect.height))
-
-            // แปลง progress (0→1) เป็น offset (-maxOffset → +maxOffset)
-            // maxOffset เล็กเพื่อให้รูปไม่หลุดออกนอกกรอบ
-            const maxOffset = rect.height * 0.15
-            const offset = (progress - 0.5) * 2 * maxOffset * speed * 5
+            const centerOffset = rect.top + rect.height / 2 - viewH / 2
+            const offset = centerOffset * speed
 
             el.style.backgroundPosition = `center calc(50% + ${offset}px)`
             rafId = null

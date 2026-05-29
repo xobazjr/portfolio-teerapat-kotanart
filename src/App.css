@@ -66,6 +66,19 @@ body {
   }
 }
 
+/* MARK: Parallax */
+
+.parallax-section {
+    position: relative;
+    overflow: hidden;
+    background-size: cover;
+    background-position: center calc(50% + 0px); /* JS จะ update ค่านี้ */
+    background-repeat: no-repeat;
+    background-attachment: scroll;
+    transform: translateZ(0);
+    will-change: background-position;
+}
+
 /* MARK: Lenis */
 
 html.lenis,
@@ -697,25 +710,17 @@ footer > div p {
 }
 
 /* MARK: About */
-.about {
-    position: relative;
-    overflow: hidden;
+.about {  
     min-height: 100vh;
     background-color: #111111;
     background-image:
         linear-gradient(rgba(0, 0, 0, 0.90), rgba(0, 0, 0, 0.90)),
         url('/public/assets/img/wallpapers/IMG_4103.jpg');
-    background-size: cover;
-    background-position: center calc(50% + 0px);
-    background-repeat: no-repeat;
-    background-attachment: scroll;
-    transform: translateZ(0);
-    will-change: background-position;
     color: #ffffff;
     padding: 80px 60px;
     display: flex;
     flex-direction: column;
-    gap: 200px;
+    gap: 100px;
 }
 
 .about_top {
@@ -738,7 +743,7 @@ footer > div p {
 
 .about_topic {
     flex: 0 0 auto;
-    max-width: 320px;
+    max-width: 377px;
 }
 
 .about_topic h2 {
@@ -776,7 +781,6 @@ footer > div p {
 }
 
 .about_left_right p {
-    font-weight: 600;
     color: #ffffff;
     line-height: 1.5;
 }
