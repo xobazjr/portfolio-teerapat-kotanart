@@ -952,6 +952,39 @@ footer > div p {
   .footer_bottom {
     gap: 16px;
   }
+
+  /* MARK: About */
+    .about {
+        padding: 60px 40px;
+        gap: 80px;
+    }
+ 
+    .about_top {
+        flex-direction: column;
+        gap: 30px;
+    }
+ 
+    .about_topic {
+        max-width: 100%;
+    }
+ 
+    .about_left_right {
+        max-width: 100%;
+        width: 100%;
+    }
+ 
+    .about_left_right img {
+        max-width: 100%;
+    }
+ 
+    .about_center {
+        grid-template-columns: 1fr auto 1fr;
+    }
+ 
+    .about_center > img {
+        width: 280px;
+        height: 280px;
+    }
 }
 
 /* MARK: 600px */
@@ -1104,4 +1137,38 @@ footer > div p {
     gap: 4px;
     padding: 12px 16px;
   }
+
+  /* MARK: About */
+  .about {
+        padding: 40px 20px;
+        gap: 60px;
+    }
+ 
+    .about_center {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto auto auto;
+        grid-template-areas:
+            "edu"
+            "logo"
+            "uni";
+        justify-items: center;
+    }
+ 
+    .about_center .about_topic {
+        justify-self: start;
+    }
+ 
+    .about_center > img {
+        width: 200px;
+        height: 200px;
+    }
+ 
+    .about_right_center {
+        text-align: center;
+        align-self: center;
+    }
+ 
+    .about_card {
+        grid-template-columns: 1fr;
+    }
 }
