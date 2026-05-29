@@ -1,17 +1,7 @@
 import { useParallax } from "../../core/useParallax";
-import useTooltip from "../../hooks/useTooltip";
-import { useRef } from "react";
 
 const About = ({items}) => {
-    const aboutRef = useParallax(0.4);
-    const imgRef = useRef(null);
-    const {
-        tooltip,
-        pos,
-        showTooltip,
-        moveTooltip,
-        hideTooltip
-    } = useTooltip();
+    const aboutRef = useParallax(0.1);
     return (
         <section className="about parallax-section" ref={aboutRef}>
             <div className="about_top">
@@ -51,17 +41,14 @@ const About = ({items}) => {
             </div> */}
             <div>
                 <div className="about_topic">
-                    <h2 className="text-h3">Experiences /</h2>
+                    <h2 className="text-h3">Internship /</h2>
                 </div>
                 <div className="about_card">
                     {items.map((element) => (
-                        <div>
-                            <img 
+                        <div key={element.id}>
+                            <img
                                 src={element.img} 
-                                alt="" 
-                                onMouseEnter={(e) => showTooltip(e, imgRef, element.title)}
-                                onMouseMove={moveTooltip}
-                                onMouseLeave={hideTooltip}
+                                alt=""
                             />
                             <h3>{element.title}</h3>
                             <p>{element.detail}</p>
@@ -86,19 +73,6 @@ const About = ({items}) => {
                     ))}
                     </div>
             </div>
-            {tooltip && (
-                <div
-                    className="projects__tooltip"
-                    style={{
-                        backgroundColor: tooltip.bg,
-                        color: tooltip.color,
-                        top: pos.y + 16,
-                        left: pos.x + 16,
-                    }}
-                >
-                    {tooltip.text}
-                </div>
-            )}
         </section>
     )
 }
