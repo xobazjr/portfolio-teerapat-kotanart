@@ -69,12 +69,10 @@ body {
 /* MARK: Parallax */
 
 .parallax-section {
-    position: relative;
-    overflow: hidden;
-    background-size: cover;
-    background-position: center calc(50% + 0px); /* JS จะ update ค่านี้ */
-    background-repeat: no-repeat;
     background-attachment: scroll;
+    background-position: center 50%;
+    overflow: hidden;
+    position: relative;
     transform: translateZ(0);
     will-change: background-position;
 }
