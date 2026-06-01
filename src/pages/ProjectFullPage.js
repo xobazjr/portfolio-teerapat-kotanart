@@ -35,13 +35,17 @@ const ProjectFullPage = ({ items }) => {
                         <div key={element.id}>
                         <Link
                             to={`/projects/${element.slug}`}
-                            onMouseEnter={(e) => showTooltip(e, imgRef, element.type)}
-                            onMouseMove={moveTooltip}
-                            onMouseLeave={hideTooltip}
                         >
                             <div className="card_projects_full_page">
-                            <div className="card_projects_full_page__img_wrap">
-                                <img src={element.image} alt={element.title} />
+                            <div 
+                                    className="card_projects_full_page__img_wrap"                                     
+                                    onMouseEnter={(e) => showTooltip(e, imgRef, element.type)}
+                                    onMouseMove={moveTooltip}
+                                    onMouseLeave={hideTooltip}>
+                                <img 
+                                    src={element.image} 
+                                    alt={element.title} 
+                                />
                                 <svg
                                     className="card_projects_full_page__arrow"
                                     width="14"
@@ -50,25 +54,25 @@ const ProjectFullPage = ({ items }) => {
                                 >
                                     <path d="M10.8101 1.96222L0.726954 12.0453L1.66171 12.9801L11.7448 2.89698L11.9344 9.4447L13.208 9.07311L13.0134 2.35278C12.9877 1.46249 12.2434 0.718185 11.3531 0.692412L4.80762 0.502924L4.43487 1.77539L10.8101 1.96222Z" fill="white" stroke="white" strokeWidth="0.542084"/>
                                 </svg>
+                                {tooltip && (
+                                    <div
+                                        className="projects__tooltip"
+                                        style={{
+                                            backgroundColor: tooltip.bg,
+                                            color: tooltip.color,
+                                            top: pos.y + 16,
+                                            left: pos.x + 16,
+                                        }}
+                                    >
+                                        {tooltip.text}
+                                    </div>
+                                )}
                             </div>
                                 <div className="title_projects_full_page text-body-lg">
                                     <p>{element.title}</p>
                                     <p>{element.with}</p>
                                 </div>
                             </div>
-                            {tooltip && (
-                                <div
-                                    className="projects__tooltip"
-                                    style={{
-                                        backgroundColor: tooltip.bg,
-                                        color: tooltip.color,
-                                        top: pos.y + 16,
-                                        left: pos.x + 16,
-                                    }}
-                                >
-                                    {tooltip.text}
-                                </div>
-                            )}
                         </Link>
                         </div>
                     ))}

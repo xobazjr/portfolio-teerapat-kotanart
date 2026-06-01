@@ -561,6 +561,7 @@ footer > div p {
   grid-column: 2;
   grid-row: 1 / 4;
   justify-content: center;
+  cursor: none;
 }
 
 .Project_Page_Top h3 {
@@ -938,6 +939,7 @@ footer > div p {
     background: linear-gradient(to top, rgba(0,0,0,0.75) 0%, transparent 60%);
     opacity: 0;
     transition: opacity 0.3s ease;
+    cursor: none;
 }
 
 .card_projects_full_page__arrow {

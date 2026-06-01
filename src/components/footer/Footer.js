@@ -34,6 +34,7 @@ const Footer = () => {
               onMouseEnter={(e) => showTooltip(e, null, "Phone No.")}
               onMouseMove={moveTooltip}
               onMouseLeave={hideTooltip}
+              style={{cursor: "none"}}
             >
               +66 95 484 9820
             </span>
@@ -45,6 +46,7 @@ const Footer = () => {
               onMouseEnter={(e) => showTooltip(e, null, "Email")}
               onMouseMove={moveTooltip}
               onMouseLeave={hideTooltip}
+              style={{cursor: "none"}}
             >
               xobazjr@gmail.com
             </span>
