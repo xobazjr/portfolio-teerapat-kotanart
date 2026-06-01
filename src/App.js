@@ -5,6 +5,8 @@ import Lenis from "lenis";
 import Cursor from "./core/Cursor";
 import Analytics from "./core/Analytics";
 
+import projects from "./data/projects";
+
 import {
     BrowserRouter,
     Routes,
@@ -60,7 +62,7 @@ function App() {
             <Routes>
                 <Route path="/" element={<HomePage />} />
                 <Route path="/projects/:slug" element={<ProjectsPage />} />
-                <Route path="/projects" element={<ProjectFullPage />}/>
+                <Route path="/projects" element={<ProjectFullPage items={projects}/>}/>
             </Routes>
         </>
     );

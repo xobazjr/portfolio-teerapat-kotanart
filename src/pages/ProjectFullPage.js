@@ -1,12 +1,11 @@
 import Navbar from "../components/navigation/Navbar";
 import Footer from "../components/footer/Footer";
-import projects from "../data/projects";
 import { Link } from "react-router-dom";
 
 import { useRef } from "react";
 import useTooltip from "../hooks/useTooltip";
 
-const ProjectFullPage = () => {
+const ProjectFullPage = ({ items }) => {
     const imgRef = useRef(null);
     const {
         tooltip,
@@ -32,7 +31,8 @@ const ProjectFullPage = () => {
                     </div>
                 </div>
                 <div className="project_full_page_main_card">
-                    {projects.map((element) => (
+                    {items.map((element) => (
+                        <div key={element.id}>
                         <Link
                             to={`/projects/${element.slug}`}
                             onMouseEnter={(e) => showTooltip(e, imgRef, element.type)}
@@ -70,6 +70,7 @@ const ProjectFullPage = () => {
                                 </div>
                             )}
                         </Link>
+                        </div>
                     ))}
                 </div>
             </section>

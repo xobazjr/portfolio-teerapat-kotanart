@@ -17,7 +17,7 @@ const Navbar = ({color, text_body, text_cv, bg_cv}) => {
                 style={{
                   color:text_body
                 }}
-                className="text-body"
+                className="text-body-lg"
                 onMouseEnter={(e) => showTooltip(e, imgRef, "Back")}
                 onMouseMove={moveTooltip}
                 onMouseLeave={hideTooltip}
