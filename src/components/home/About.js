@@ -20,7 +20,7 @@ const About = ({items}) => {
                     </p>
                 </div>
             </div>
-            {/* <div className="about_center">
+            <div className="about_center">
                 <div className="about_topic">
                     <h2 className="text-h3">Education /</h2>
                     <p className="text-body-lg"> 
@@ -35,7 +35,7 @@ const About = ({items}) => {
                     <p className="text-body">King Mongkut's University of Technology North Bangkok</p>
                     <p className="text-body">Computer Science</p>
                 </div>
-            </div> */}
+            </div>
             <div>
                 <div className="about_topic">
                     <h2 className="text-h3">Internship /</h2>

@@ -57,9 +57,14 @@ const ProjectCard = ({ element }) => {
                 <p className="text-body-lg chivo">
                     ×
                 </p>
-                <h3 className="projects__type text-h3">
-                    {element.with}
-                </h3>
+                <Link
+                    className="projects__link"
+                    to={`projects/${element.slug}`}
+                >
+                    <h3 className="projects__type text-h3">
+                        {element.with}
+                    </h3>
+                </Link>
             </div>
         </div>
     );
