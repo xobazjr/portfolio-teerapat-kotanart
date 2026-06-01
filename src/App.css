@@ -1233,7 +1233,7 @@ footer > div p {
   /* MARK: Projects */
 
   .projects {
-    padding: 36px 16px;
+    padding: 36px 16px 0;
   }
 
   .projects__img-wrapper img {
