@@ -19,7 +19,7 @@ const ProjectPage = () => {
   }
   return (
     <>
-      <Navbar/>
+      <Navbar color="#000000" text_body="#ffffff" text_cv="#000000" bg_cv="#ffffff"/>
       <section className="Project_Page">
         <div className="Project_Page_Top">
           <h3 className="text-body-lg">{project.title}</h3>

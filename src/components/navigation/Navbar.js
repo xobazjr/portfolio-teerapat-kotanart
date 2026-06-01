@@ -2,14 +2,21 @@ import { Link } from "react-router-dom";
 import useTooltip from "../../hooks/useTooltip";
 import { useRef } from "react";
 
-const Navbar = () => {
-    const imgRef = useRef(null);
+const Navbar = ({color, text_body, text_cv, bg_cv}) => {
+  const imgRef = useRef(null);
   const { tooltip, pos, showTooltip, moveTooltip, hideTooltip } = useTooltip();
   return (
-    <nav>
+    <nav 
+      style={{
+        backgroundColor:color, 
+      }}
+    >
       <div className="nav-left">
         <Link to={`/`}>
             <p 
+                style={{
+                  color:text_body
+                }}
                 className="text-body"
                 onMouseEnter={(e) => showTooltip(e, imgRef, "Back")}
                 onMouseMove={moveTooltip}
@@ -22,6 +29,10 @@ const Navbar = () => {
 
       <div className="nav-right">
         <a
+          style={{
+            color: text_body,
+            border: `1px solid ${bg_cv}`
+          }}
           href="https://www.youtube.com/@XobazJr"
           className="text-small"
           target="_blank"
@@ -34,6 +45,10 @@ const Navbar = () => {
         </a>
 
         <a
+          style={{
+            backgroundColor: bg_cv,
+            color: text_cv
+          }}
           href="assets/documents/teerapat_kotanart_cv.pdf"
           className="text-small"
           download

@@ -14,6 +14,7 @@ import {
 
 import HomePage from "./pages/HomePage";
 import ProjectsPage from "./pages/ProjectsPage";
+import ProjectFullPage from "./pages/ProjectFullPage";
 
 function AppWrapper() {
     return (
@@ -59,6 +60,7 @@ function App() {
             <Routes>
                 <Route path="/" element={<HomePage />} />
                 <Route path="/projects/:slug" element={<ProjectsPage />} />
+                <Route path="/projects" element={<ProjectFullPage />}/>
             </Routes>
         </>
     );

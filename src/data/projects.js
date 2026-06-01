@@ -88,7 +88,7 @@ const projects = [
             type: "Website",
             url: "https://www.snowbeefthailand.com/"
         }
-    }
+    },
 ]
 
 export default projects;

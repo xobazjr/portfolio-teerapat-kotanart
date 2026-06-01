@@ -30,9 +30,6 @@ const About = ({items}) => {
                 <img 
                     src="/assets/img/logo/Logo_KMUTNB_ENG.png" 
                     alt="" 
-                    onMouseEnter={(e) => showTooltip(e, imgRef, "King Mongkut's University of Technology North Bangkok")}
-                    onMouseMove={moveTooltip}
-                    onMouseLeave={hideTooltip}
                 />
                 <div className="about_right_center">
                     <p className="text-body">King Mongkut's University of Technology North Bangkok</p>

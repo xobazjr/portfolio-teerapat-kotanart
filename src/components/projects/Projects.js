@@ -81,12 +81,24 @@ const Projects = ({ items }) => {
             </div>
 
             <div className="projects__grid">
-                {items.map((element, index) => (
+                {items.slice(0, 6).map((element, index) => (
                     <ProjectCard
                         key={element.id}
                         element={element}
                     />
                 ))}
+            </div>
+            <div className="view_all">
+                <Link
+                    to={`/projects`}
+                >
+                    <p>Check my all projects</p>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24">
+                        <path d="M0 0h24v24H0z" fill="none" />
+                        <path fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 12h16m0 0l-6-6m6 6l-6 6" />
+                    </svg>
+                    <p>View All </p>
+                </Link>
             </div>
         </section>
     );
