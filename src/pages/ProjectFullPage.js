@@ -23,7 +23,7 @@ const ProjectFullPage = () => {
                     <p className="text-body-lg">PROJECTS</p>
                     <div>
                         <h1>THIS IS MY PROJECTS</h1>
-                        <p className="text-body">
+                        <p className="text-small">
                             I build modern websites and applications using HTML, CSS, 
                             JavaScript, React, PHP, IoT, and Flutter. My projects focus on responsive design, 
                             performance, clean user experience, and scalable development across both web 
