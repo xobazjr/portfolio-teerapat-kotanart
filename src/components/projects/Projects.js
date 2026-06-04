@@ -57,14 +57,14 @@ const ProjectCard = ({ element }) => {
                 <p className="text-body-lg chivo">
                     ×
                 </p>
-                <Link
+                    <Link
                     className="projects__link"
-                    to={`projects/${element.slug}`}
-                >
+                    to={`/projects?type=${encodeURIComponent(element.with)}`}
+                    >
                     <h3 className="projects__type text-h3">
                         {element.with}
                     </h3>
-                </Link>
+                    </Link>
             </div>
         </div>
     );
