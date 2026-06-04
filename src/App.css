@@ -1040,9 +1040,9 @@ footer > div p {
     gap: 8px;
 }
 
-.title_projects_full_page p:first-child, .text-body-lg {
+.title_projects_full_page p:first-child {
     font-weight: 700;
-    color: #111111;
+    color: #000000;
     text-decoration: none;
 }
 
@@ -1051,6 +1051,7 @@ footer > div p {
     display: inline-block;
     padding-bottom: 3px;
     border-bottom: 3px solid #bdbdbd;
+    color: #000000;
 }
 
 .project_full_page_title p:first-child::after {
