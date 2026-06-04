@@ -37,8 +37,8 @@ const About = ({items, education}) => {
                     <p className="text-body">Computer Science</p>
                 </div>
             </div> */}
-            <AboutList items={items} topic="Internship" />
             <AboutList items={education} topic="Education" />
+            <AboutList items={items} topic="Internship" />
         </section>
     )
 }
