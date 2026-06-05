@@ -2,9 +2,11 @@ import { useParallax } from "../../core/useParallax";
 import AboutList from "./AboutList";
 
 const About = ({items, education}) => {
-    const aboutRef = useParallax(0.1);
+    const { containerRef, bgRef } = useParallax(0.15, 0.08); 
+
     return (
-        <section className="about parallax-section" ref={aboutRef}>
+        <section className="about parallax-container" ref={containerRef}>
+        <div ref={bgRef} className="parallax-bg" style={{ backgroundImage: " linear-gradient(rgba(0, 0, 0, 0.90), rgba(0, 0, 0, 0.90)), url('/assets/img/wallpapers/IMG_4103.jpg')" }}></div>
             <div className="about_top">
                 <div className="about_topic">
                     <h2 className="text-h3">About Me /</h2>
@@ -21,22 +23,7 @@ const About = ({items, education}) => {
                     </p>
                 </div>
             </div>
-            {/* <div className="about_center">
-                <div className="about_topic">
-                    <h2 className="text-h3">Education /</h2>
-                    <p className="text-body-lg"> 
-                        2023 - Present
-                    </p>
-                </div>
-                <img 
-                    src="/assets/img/logo/Logo_KMUTNB_ENG.png" 
-                    alt="" 
-                />
-                <div className="about_right_center">
-                    <p className="text-body">King Mongkut's University of Technology North Bangkok</p>
-                    <p className="text-body">Computer Science</p>
-                </div>
-            </div> */}
+
             <AboutList items={education} topic="Education" />
             <AboutList items={items} topic="Internship" />
         </section>

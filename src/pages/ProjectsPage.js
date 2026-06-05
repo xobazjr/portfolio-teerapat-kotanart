@@ -68,6 +68,21 @@ const ProjectPage = () => {
             <p className="text-body-lg">{project.with}</p>
           )}
         </div>
+        {project.stack ? (
+          <div className="tech_stack">
+            <h3 className="text-body-lg">Tech Stack</h3>
+            <div className="tech_stack_list">
+              {[...project.stack]
+                .sort((a, b) => a.type.localeCompare(b.type))
+                .map((element, index) => (
+                  <div className="tech_stack_sub" key={index}>
+                    <div dangerouslySetInnerHTML={{ __html: element.svg }} />
+                    <p>{element.type}</p>
+                  </div>
+                ))}
+            </div>
+          </div>
+        ) : null}
       </section>
       <Containers projects={projects} slug={project.slug}/>
       <Footer/>

@@ -68,13 +68,28 @@ body {
 
 /* MARK: Parallax */
 
-.parallax-section {
-    background-attachment: scroll;
-    background-position: center 50%;
-    overflow: hidden;
+.parallax-container {
+    position: relative !important;
+    overflow: hidden !important;
+    width: 100%;
+    z-index: 1 !important; 
+}
+
+.parallax-bg {
+    position: absolute;
+    top: -15% !important;
+    left: -5% !important;
+    width: 110% !important;
+    height: 130% !important; 
+    background-size: cover;
+    background-position: center;
+    will-change: transform; 
+    pointer-events: none; 
+    z-index: -1 !important;            
+}
+
+.about_top, .about_center, .about_list_container {
     position: relative;
-    transform: translateZ(0);
-    will-change: background-position;
 }
 
 /* MARK: Lenis */
@@ -632,6 +647,47 @@ footer > div p {
   text-underline-offset: 6px;
   white-space: nowrap;
   font-weight: 400;
+}
+
+.tech_stack {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.tech_stack > p {
+    font-weight: 700;
+    color: #ffffff;
+}
+
+.tech_stack_list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.tech_stack_sub {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 16px;
+    background-color: #1e1e1e;
+    border-radius: 10px;
+    color: #ffffff;
+}
+
+.tech_stack_sub p {
+    font-weight: 500;
+    color: #ffffff;
+    white-space: nowrap;
+}
+
+.tech_stack_sub svg,
+.tech_stack_sub img {
+    width: 22px;
+    height: 22px;
+    object-fit: contain;
+    flex-shrink: 0;
 }
 
 /* MARK: Container */
