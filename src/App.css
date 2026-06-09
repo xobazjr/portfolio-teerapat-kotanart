@@ -69,27 +69,25 @@ body {
 /* MARK: Parallax */
 
 .parallax-container {
-    position: relative !important;
-    overflow: hidden !important;
-    width: 100%;
-    z-index: 1 !important; 
+    position: relative;
+    overflow: hidden;
 }
-
+ 
 .parallax-bg {
     position: absolute;
-    top: -15% !important;
-    left: -5% !important;
-    width: 110% !important;
-    height: 130% !important; 
+    inset: -20%; 
     background-size: cover;
-    background-position: center;
-    will-change: transform; 
-    pointer-events: none; 
-    z-index: -1 !important;            
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: scroll;
+    transform: translateZ(0);
+    will-change: background-position;
+    z-index: 0;
 }
-
-.about_top, .about_center, .about_list_container {
+ 
+.parallax-container > *:not(.parallax-bg) {
     position: relative;
+    z-index: 1;
 }
 
 /* MARK: Lenis */

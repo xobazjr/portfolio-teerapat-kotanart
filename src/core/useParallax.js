@@ -1,46 +1,63 @@
 import { useEffect, useRef } from 'react'
-
-export function useParallax(speed = 0.15, ease = 0.08) {
+ 
+export function useParallax(desktopSpeed = 0.2, mobileSpeed = 0, breakpoint = 1024) {
     const containerRef = useRef(null)
     const bgRef = useRef(null)
-
+ 
     useEffect(() => {
-        if (typeof window !== 'undefined' && window.innerWidth <= 1024) return;
-
         const container = containerRef.current
         const bg = bgRef.current
         if (!container || !bg) return
-
+ 
         let rafId = null
-        let targetY = 0
-        let currentY = 0
-
-        const onScroll = () => {
+        let ticking = false
+ 
+        const isDesktop = () => window.innerWidth >= breakpoint
+ 
+        const update = () => {
+            const speed = isDesktop() ? desktopSpeed : mobileSpeed
+            const scrollY = window.scrollY
             const rect = container.getBoundingClientRect()
-            const viewH = window.innerHeight
-            
-            if (rect.top < viewH && rect.bottom > 0) {
-                const centerOffset = (rect.top + rect.height / 2) - viewH / 2
-                targetY = centerOffset * speed
+ 
+            if (rect.bottom < 0 || rect.top > window.innerHeight) {
+                ticking = false
+                return
+            }
+ 
+            if (speed === 0) {
+                bg.style.backgroundPosition = 'center center'
+                ticking = false
+                return
+            }
+ 
+            const offset = scrollY * speed
+            bg.style.backgroundPosition = `center calc(50% + ${offset}px)`
+            ticking = false
+        }
+ 
+        const onScroll = () => {
+            if (!ticking) {
+                rafId = requestAnimationFrame(update)
+                ticking = true
             }
         }
-
-        const updateAnimation = () => {
-            currentY += (targetY - currentY) * ease
-            bg.style.transform = `translate3d(0, ${currentY}px, 0) scale(1.15)`
-            
-            rafId = requestAnimationFrame(updateAnimation)
+ 
+        const onResize = () => {
+            if (!isDesktop()) {
+                bg.style.backgroundPosition = 'center center'
+            }
         }
-
+ 
         window.addEventListener('scroll', onScroll, { passive: true })
-        onScroll()
-        rafId = requestAnimationFrame(updateAnimation)
-
+        window.addEventListener('resize', onResize)
+        update()
+ 
         return () => {
             window.removeEventListener('scroll', onScroll)
+            window.removeEventListener('resize', onResize)
             if (rafId) cancelAnimationFrame(rafId)
         }
-    }, [speed, ease])
-
+    }, [desktopSpeed, mobileSpeed, breakpoint])
+ 
     return { containerRef, bgRef }
 }
