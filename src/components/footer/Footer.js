@@ -36,7 +36,7 @@ const Footer = () => {
               onMouseLeave={hideTooltip}
               style={{cursor: "none"}}
             >
-              +66 95 484 9820
+              +66 95 484 9802
             </span>
 
             <br />
