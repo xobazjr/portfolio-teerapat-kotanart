@@ -39,7 +39,19 @@ export default function PageLoader() {
       }, remaining);
     };
 
-    const show = () => {
+    const show = (url) => {
+      const nextPath = new URL(url, window.location.origin).pathname.replace(/\/$/, "");
+      const currentPath = router.pathname.replace(/\/$/, "");
+
+      // การเปลี่ยนตัวกรองในหน้า Projects ไม่ต้องแสดง page transition
+      if (currentPath === "/projects" && nextPath === "/projects") {
+        clearTimeout(hideTimer);
+        setLoading(false);
+        setEntering(false);
+        setLeaving(false);
+        return;
+      }
+
       clearTimeout(removeTimer);
       startedAt.current = Date.now();
       setEntering(true);
