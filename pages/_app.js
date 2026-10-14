@@ -7,14 +7,12 @@ import PageLoader from "../core/PageLoader";
 
 export default function App({ Component, pageProps, router }) {
   const lenisRef = useRef(null);
-  const latestPage = useRef({ Component, pageProps, asPath: router.asPath });
+  const pendingNavigation = useRef(null);
   const [displayedPage, setDisplayedPage] = useState({
     Component,
     pageProps,
     asPath: router.asPath,
   });
-
-  latestPage.current = { Component, pageProps, asPath: router.asPath };
 
   useEffect(() => {
     const lenis = new Lenis({ duration: 1.2, smoothWheel: true, smoothTouch: false });
@@ -37,22 +35,49 @@ export default function App({ Component, pageProps, router }) {
   }, [displayedPage.asPath]);
 
   useEffect(() => {
-    let swapTimer;
+    const getPathname = (url) =>
+      new URL(url, window.location.origin).pathname.replace(/\/$/, "");
 
-    const swapPageAfterLoaderEnters = () => {
-      clearTimeout(swapTimer);
-      swapTimer = window.setTimeout(() => {
-        setDisplayedPage(latestPage.current);
-      }, 860);
+    const markNavigation = (url) => {
+      pendingNavigation.current = {
+        isProjectsFilter:
+          router.pathname.replace(/\/$/, "") === "/projects" &&
+          getPathname(url) === "/projects",
+      };
     };
 
-    router.events.on("routeChangeComplete", swapPageAfterLoaderEnters);
+    const cancelNavigation = () => {
+      pendingNavigation.current = null;
+    };
+
+    router.events.on("routeChangeStart", markNavigation);
+    router.events.on("routeChangeError", cancelNavigation);
 
     return () => {
-      clearTimeout(swapTimer);
-      router.events.off("routeChangeComplete", swapPageAfterLoaderEnters);
+      router.events.off("routeChangeStart", markNavigation);
+      router.events.off("routeChangeError", cancelNavigation);
     };
-  }, [router.events]);
+  }, [router.events, router.pathname]);
+
+  useEffect(() => {
+    if (displayedPage.asPath === router.asPath) return undefined;
+
+    const nextPage = { Component, pageProps, asPath: router.asPath };
+    const isProjectsFilter = pendingNavigation.current?.isProjectsFilter;
+
+    if (isProjectsFilter) {
+      pendingNavigation.current = null;
+      setDisplayedPage(nextPage);
+      return undefined;
+    }
+
+    const swapTimer = window.setTimeout(() => {
+      pendingNavigation.current = null;
+      setDisplayedPage(nextPage);
+    }, 860);
+
+    return () => window.clearTimeout(swapTimer);
+  }, [Component, pageProps, router.asPath, displayedPage.asPath]);
 
   const DisplayedComponent = displayedPage.Component;
 

@@ -13,6 +13,7 @@ export default function PageLoader() {
   const [progress, setProgress] = useState(1);
   const startedAt = useRef(Date.now());
   const enterFrame = useRef(null);
+  const skipNavigation = useRef(false);
 
   useEffect(() => {
     let hideTimer;
@@ -25,6 +26,13 @@ export default function PageLoader() {
     }, 90);
 
     const hide = () => {
+      if (skipNavigation.current) {
+        skipNavigation.current = false;
+        clearTimeout(hideTimer);
+        clearTimeout(removeTimer);
+        return;
+      }
+
       clearTimeout(hideTimer);
       const elapsed = Date.now() - startedAt.current;
       const remaining = Math.max(0, NAVIGATION_DELAY - elapsed);
@@ -41,14 +49,17 @@ export default function PageLoader() {
 
     const show = (url) => {
       const nextPath = new URL(url, window.location.origin).pathname.replace(/\/$/, "");
-      const currentPath = router.pathname.replace(/\/$/, "");
+      const currentPath = window.location.pathname.replace(/\/$/, "");
 
       // การเปลี่ยนตัวกรองในหน้า Projects ไม่ต้องแสดง page transition
       if (currentPath === "/projects" && nextPath === "/projects") {
+        skipNavigation.current = true;
         clearTimeout(hideTimer);
+        clearTimeout(removeTimer);
         setLoading(false);
         setEntering(false);
         setLeaving(false);
+        setProgress(100);
         return;
       }
 

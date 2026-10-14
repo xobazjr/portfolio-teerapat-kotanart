@@ -26,6 +26,11 @@ const ProjectFullPage = ({ items }) => {
         )
         : items;
 
+    const openProject = (event, slug) => {
+        event.preventDefault();
+        router.push(`/projects/${slug}`, undefined, { scroll: false });
+    };
+
     const uniqueTypes = [
         ...new Set(
             items.map((item) => item.with)
@@ -80,7 +85,11 @@ const ProjectFullPage = ({ items }) => {
                 <div className="project_full_page_main_card">
                     {filteredItems.map((element) => (
                         <div key={element.id}>
-                            <Link href={`/projects/${element.slug}`} scroll={false}>
+                            <Link
+                                href={`/projects/${element.slug}`}
+                                scroll={false}
+                                onClick={(event) => openProject(event, element.slug)}
+                            >
                                 <div className="card_projects_full_page">
                                     <div
                                         className="card_projects_full_page__img_wrap"
